@@ -1,8 +1,8 @@
-@extends('layouts.list')
+@extends('layout.list')
 
-@section('title', 'Ini adalah judul pada meta')
+@section('title', 'My App')
+
 @section('content')
-
 <table>
     <thead>
         <tr>

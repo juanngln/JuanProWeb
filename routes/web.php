@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ListProductController;
 
-Route::get('/list_barang', function () {
-    return view('layout/list');
+Route::get('/produk', function() {
+    return view('list_product');
 });
+
+Route::get('/produk', [ListProductController::class, 'tampilkan']);
