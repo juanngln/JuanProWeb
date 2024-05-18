@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ListProductController extends Controller
+class ProductController extends Controller
 {
     public function getData () {
         $dataProduk = [
@@ -21,6 +21,6 @@ class ListProductController extends Controller
 
     public function tampilkan() {
         $data = $this->getData();
-        return view('list_product', compact('data'));
+        return view('product', compact('data'));
     }
 }

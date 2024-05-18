@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 
-class ProdukController extends Controller
+class ListProdukController extends Controller
 {
     public function show() {
         $data = Produk::get();
@@ -14,6 +14,6 @@ class ProdukController extends Controller
             $desc[] = $produk->deskripsi;
             $harga[] = $produk->harga;
         }
-        return view('produk', compact('nama', 'desc', 'harga'));
+        return view('list_produk', compact('nama', 'desc', 'harga'));
     }
 }
