@@ -7,7 +7,9 @@ use App\Models\Produk;
 
 class ListProdukController extends Controller
 {
-    public function show() {
+    // Praktikum 8
+    public function show() 
+    {
         $data = Produk::get();
         foreach ($data as $produk) {
             $nama[] = $produk->nama;
@@ -15,5 +17,17 @@ class ListProdukController extends Controller
             $harga[] = $produk->harga;
         }
         return view('list_produk', compact('nama', 'desc', 'harga'));
+    }
+
+    // Praktikum 9
+    public function simpan(Request $request) 
+    {
+        $produk = new Produk;
+        $produk->nama = $request->input('nama');
+        $produk->deskripsi = $request->input('deskripsi');
+        $produk->harga = $request->input('harga');
+        $produk->save();
+
+        return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }
 }

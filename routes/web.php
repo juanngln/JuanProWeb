@@ -11,3 +11,4 @@ Route::get("/", function(){
 
 Route::get("/product", [ProductController::class, 'tampilkan']);
 Route::get('/listproduk', [ListProdukController::class, 'show']);
+Route::post('/listproduk', [ListProdukController::class, 'simpan'])->name('produk.simpan');
