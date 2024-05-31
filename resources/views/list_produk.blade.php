@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <title>List Produk | Praktikum 8 & 9</title>
+    <title>List Produk | Praktikum Pemrograman Web</title>
 </head>
 
 <body>
-    {{-- Praktikum 8 --}}
     <div class="mt-10 mx-20">
         <table class="table-auto border-collapse w-full border border-gray-300">
             <thead>
@@ -19,22 +18,29 @@
                     <th class="border border-gray-300 px-4 py-2">Nama Produk</th>
                     <th class="border border-gray-300 px-4 py-2">Deskripsi Produk</th>
                     <th class="border border-gray-300 px-4 py-2">Harga Produk</th>
+                    <th class="border border-gray-300 px-4 py-2">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($nama as $index => $item)
                 <tr>
-                    <td class="border border-gray-300 px-4 py-2">{{ $index + 1 }}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-center">{{ $index + 1 }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $item }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $desc[$index] }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $harga[$index] }}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-red-500">
+                        <form action="{{ route('produk.delete', $id[$index]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="" type="submit" onclick="return confirm('Are you sure you want to delete {{ $item }}?')">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 
-    {{-- Praktikum 9 --}}
     <div class="m-20">
         <div class="mb-10">
             <h1 class="text-xl font-bold">Input Produk</h1>
@@ -66,7 +72,6 @@
             <button type="submit" class="btn btn-wide btn-primary mt-10">Simpan</button>
         </form>
     </div>
-
 </body>
 
 </html>
