@@ -8,5 +8,5 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('produk', [ApiController::class, 'index']);
-Route::get('list', [ApiController::class, 'getProduk']);
+Route::get('/produk', [ApiController::class, 'index']);
+Route::get('/list', [ApiController::class, 'getProduk']);
